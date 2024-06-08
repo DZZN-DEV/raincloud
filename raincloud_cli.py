@@ -5,8 +5,6 @@ import urllib.request
 import regex
 import json
 
-limit = 1000
-
 def fetch_clientid():
     agent = "Mozilla/5.0 (iPhone; CPU iPhone OS 13_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.5 Mobile/15E148 Safari/604.1"
     headers = {"User-Agent": agent}
@@ -22,7 +20,7 @@ def fetch_clientid():
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Simple SoundCloud downloader")
     parser.add_argument('sc_url', type=str, help="SoundCloud URL")
-    parser.add_argument('--cid', type=str, default=None, help="SoundCloud client ID, can be obtained via F12 on refresh.")
+    parser.add_argument('--cid', type=str, default=None, help="SoundCloud client ID, can be obtained programmatically or set own")
     parser.add_argument('--nm', default=False, action='store_true', help='Just download mp3, no metadata')
     args = parser.parse_args()
 
